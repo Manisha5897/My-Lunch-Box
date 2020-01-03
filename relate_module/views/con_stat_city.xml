@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+	<!-- country -->
+	<record id="country_form_view" model="ir.ui.view">
+        <field name="name">countrys.app.form</field>
+        <field name="model">countrys.app</field>
+        <field name="arch" type="xml">
+            <form string="form view">
+                <sheet>
+                    <group>
+                        <field name="cntrynm" />
+                        <field name="states" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="countrys_tree_view" model="ir.ui.view">
+        <field name="name">countrys.app.tree</field>
+        <field name="model">countrys.app</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="cntrynm" />
+                <field name="states" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="countrys_action" model="ir.actions.act_window">
+        <field name="name">MyApp</field>
+        <field name="res_model">countrys.app</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- state -->
+    <record id="stats_form_view" model="ir.ui.view">
+        <field name="name">stats.app.form</field>
+        <field name="model">stats.app</field>
+        <field name="arch" type="xml">
+            <form string="form view">
+                <sheet>
+                    <group>
+                        <field name="statnm" />
+                        <field name="cities" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="stats_tree_view" model="ir.ui.view">
+        <field name="name">stats.app.tree</field>
+        <field name="model">stats.app</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="statnm" />
+                <field name="cities" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="stats_action" model="ir.actions.act_window">
+        <field name="name">MyApp</field>
+        <field name="res_model">stats.app</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- city -->
+    <record id="citys_form_view" model="ir.ui.view">
+        <field name="name">citys.app.form</field>
+        <field name="model">citys.app</field>
+        <field name="arch" type="xml">
+            <form string="form view">
+                <sheet>
+                    <group>
+                        <field name="citynm" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="citys_tree_view" model="ir.ui.view">
+        <field name="name">citys.app.tree</field>
+        <field name="model">citys.app</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="citynm" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="citys_action" model="ir.actions.act_window">
+        <field name="name">MyApp</field>
+        <field name="res_model">citys.app</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="demo_app" name="MyApp" />
+    <menuitem id="demo_app_action" name="Country" parent="demo_app" action="countrys_action" />
+    <menuitem id="demo_app_actions" name="State" parent="demo_app" action="stats_action" />
+    <menuitem id="demo_app_actionss" name="City" parent="demo_app" action="citys_action" />
+</odoo>

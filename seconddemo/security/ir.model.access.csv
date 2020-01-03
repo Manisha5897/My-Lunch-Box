@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_country_demo_city,access_country_demo_city,model_country_demo_city,base.group_user,1,1,1,1
+access_country_demo_state,access_country_demo_state,model_country_demo_state,base.group_user,1,1,1,1
+access_country_demo_country,access_country_demo_country,model_country_demo_country,base.group_user,1,1,1,1
+access_chield_chield,access_chield_chield,model_chield_chield,base.group_user,1,1,1,1
+access_parent_parent,access_parent_parent,model_parent_parent,base.group_user,1,1,1,1
+access_country_state,access_country_state,model_country_state,base.group_user,1,1,1,1 

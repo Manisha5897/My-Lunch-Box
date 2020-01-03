@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_parent_app,access_parent_app,model_parent_app,base.group_user,1,1,1,1 
+access_child_app,access_child_app,model_child_app,base.group_user,1,1,1,1 
+access_countrys_app,access_countrys_app,model_countrys_app,base.group_user,1,1,1,1 
+access_stats_app,access_stats_app,model_stats_app,base.group_user,1,1,1,1 
+access_citys_app,access_citys_app,model_citys_app,base.group_user,1,1,1,1 
+

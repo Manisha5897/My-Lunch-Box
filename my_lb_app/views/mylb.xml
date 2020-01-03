@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <!-- 11111111111111111111111111111111111111111111111 -->
+    <record model="ir.ui.view" id="demo_app_form_view">
+        <field name="name">lb.app.mylb.form</field>
+        <field name="model">lb.app.mylb</field>
+        <field name="arch" type="xml">
+            <form string="form view">
+                <sheet>
+                    <group colspan="2" cols="2">
+                        <field name="name" />
+                        <field name="address" />
+                        <field name="cntc" />
+                        <field name="email" />
+                        <field name="course" />
+                    </group>
+                </sheet>
+                <!-- <notebook>
+            <page string="NAME">
+                <field name="name"/>
+            </page>
+            <page string="ADDRESS">
+                <field name="address"/>
+            </page>
+            <page string="CONTACT NO.">
+                <field name="cntc"/>
+            </page>
+            <page string="ABOUT">
+                This is a lunch box
+            </page>
+          </notebook> -->
+            </form>
+        </field>
+    </record>
+
+    <record id="demo_app_tree_view" model="ir.ui.view">
+        <field name="name">lb.app.mylb.tree</field>
+        <field name="model">lb.app.mylb</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="address" />
+                <field name="cntc" />
+                <field name="email" />
+                <field name="course" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="demo_app_search_view">
+        <field name="name">lb.app.mylb.search</field>
+        <field name="model">lb.app.mylb</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="course" />
+                <field name="email" />
+            </search>
+        </field>
+    </record>
+
+    <record id="action_demo" model="ir.actions.act_window">
+        <field name="name">MyApp</field>
+        <field name="res_model">lb.app.mylb</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- 2222222222222222222222222222222222222222222222222222222222 -->
+    <record model="ir.ui.view" id="newdemo_app_form_view">
+        <field name="name">lb.app.newmylb.form</field>
+        <field name="model">lb.app.newmylb</field>
+        <field name="arch" type="xml">
+            <form string="form view">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="fees" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="newdemo_app_tree_view" model="ir.ui.view">
+        <field name="name">lb.app.newmylb.tree</field>
+        <field name="model">lb.app.newmylb</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="fees" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_newdemo" model="ir.actions.act_window">
+        <field name="name">MyApp</field>
+        <field name="res_model">lb.app.newmylb</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="demo_app" name="My Demo App" />
+    <menuitem id="demo_app_action" name="Student" parent="demo_app" action="action_demo" />
+    <menuitem id="demo_app_actions" name="Course" parent="demo_app" action="action_newdemo" />
+</odoo>

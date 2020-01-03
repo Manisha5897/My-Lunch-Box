@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="chield_form_view" model="ir.ui.view">
+        <field name="name">chield.chield.form</field>
+        <field name="model">chield.chield</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="chield_name" />
+                        <!-- <field name="parent_name" /> -->
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+        <record id="parent_view" model="ir.ui.view">
+        <field name="name">parent.parent.form</field>
+        <field name="model">parent.parent</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="parent_name" />
+                        <field name="chieldss" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="parent_view_tree" model="ir.ui.view">
+        <field name="name">parent.parent.form</field>
+        <field name="model">parent.parent</field>
+        <field name="arch" type="xml">
+            <tree>
+                 <field name="parent_name" />
+                 <field name="chieldss" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+        <record id="chield_tree_view" model="ir.ui.view">
+        <field name="name">chield.chield.form</field>
+        <field name="model">chield.chield</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="chield_name" />
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="child_child_action" model="ir.actions.act_window">
+        <field name="name">child</field>
+        <field name="res_model">chield.chield</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <record id="parent_action" model="ir.actions.act_window">
+        <field name="name">parent</field>
+        <field name="res_model">parent.parent</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem name="Child" id="menu_child" />
+    <menuitem name="Child" parent="menu_child" action="child_child_action" id="submenu_child" />
+
+     
+    <menuitem name="parent" parent="menu_child" action="parent_action" id="parent_parent_menu" />
+</odoo>

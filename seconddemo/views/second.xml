@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="city_form_view" model="ir.ui.view">
+        <field name="name">country.demo.city.form</field>
+        <field name="model">country.demo.city</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="city_name" />
+                        <field name="area_name" />
+                        <field name="pincode" />
+                        <field name="city_population" />
+                        <field name="selection_test" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="city_tree_view" model="ir.ui.view">
+        <field name="name">country.demo.city.form</field>
+        <field name="model">country.demo.city</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="city_name" />
+                <field name="area_name" />
+                <field name="pincode" />
+                <field name="city_population" />
+            </tree>
+        </field>
+    </record>
+    <record id="city_clicl_one" model="ir.actions.act_window">
+        <field name="name">city</field>
+        <field name="res_model">country.demo.city</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="state_form_view" model="ir.ui.view">
+        <field name="name">country.demo.state.form</field>
+        <field name="model">country.demo.state</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="state_name" />
+                        <field name="city_name_in_state" />
+                        <field name="state_population" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="state_tree_view" model="ir.ui.view">
+        <field name="name">country.demo.state.form</field>
+        <field name="model">country.demo.state</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="state_name" />
+                <field name="city_name_in_state" />
+                <!-- <field name="pincode" /> -->
+                <field name="state_population" />
+            </tree>
+        </field>
+    </record>
+    <record id="country_tree_view" model="ir.ui.view">
+        <field name="name">country.demo.country.form</field>
+        <field name="model">country.demo.country</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="country_name" />
+                <field name="country_state_name" />
+                <!-- <field name="pincode" /> -->
+                <field name="country_city_name" />
+            </tree>
+        </field>
+    </record>
+    <record id="country_form_view" model="ir.ui.view">
+        <field name="name">country.demo.country.form</field>
+        <field name="model">country.demo.country</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="country_name" />
+                        <field name="country_state_name" />
+                        <!-- <field name="pincode" /> -->
+                        <field name="country_city_name" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="form_view_country_all" model="ir.ui.view">
+        <field name="name">country.state.form</field>
+        <field name="model">country.state</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="state_names" />
+                        <!-- <field name="pincode" /> -->
+                        <field name="country_city_name" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="country_view_all" model="ir.ui.view">
+        <field name="name">country.state.tree</field>
+        <field name="model">country.state</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="state_names" widget="many2many_tags" />
+                <!-- <field name="pincode" /> -->
+                <field name="country_city_name" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+    <record id="city_clicl_one_state" model="ir.actions.act_window">
+        <field name="name">city</field>
+        <field name="res_model">country.demo.state</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="city_clicl_one_country" model="ir.actions.act_window">
+        <field name="name">city</field>
+        <field name="res_model">country.demo.country</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="click_view_all_country_details" model="ir.actions.act_window">
+        <field name="name">all cuntry</field>
+        <field name="res_model">country.state</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="city_view_click" name="City" />
+    <menuitem id="city_view_click_city" name="City" parent="city_view_click" action="city_clicl_one" />
+    <menuitem id="city_view_click_state" name="State" parent="city_view_click" action="city_clicl_one_state" />
+    <menuitem id="city_view_click_country" name="country" parent="city_view_click" action="city_clicl_one_country" />
+    <!-- fourth menu -->
+    <menuitem id="view_country_all" name="countryall" parent="city_view_click" action="click_view_all_country_details" />
+</odoo>

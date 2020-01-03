@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+	<!-- parent -->
+    <record model="ir.ui.view" id="parent_form_view">
+        <field name="name">parent.app.form</field>
+        <field name="model">parent.app</field>
+        <field name="arch" type="xml">
+            <form string="form view">
+                <sheet>
+                    <group>
+                        <field name="pname" />
+                        <field name="childs"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="parent_tree_view" model="ir.ui.view">
+        <field name="name">parent.app.tree</field>
+        <field name="model">parent.app</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="pname" />
+                <field name="childs" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="parent_action" model="ir.actions.act_window">
+        <field name="name">MyApp</field>
+        <field name="res_model">parent.app</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- child -->
+    <record model="ir.ui.view" id="child_form_view">
+        <field name="name">child.app.form</field>
+        <field name="model">child.app</field>
+        <field name="arch" type="xml">
+            <form string="form view">
+                <sheet>
+                    <group>
+                        <field name="cname" />
+                        <!-- <field name="panm"/> -->
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="child_tree_view" model="ir.ui.view">
+        <field name="name">child.app.tree</field>
+        <field name="model">child.app</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="cname" />
+                <field name="panm"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="child_action" model="ir.actions.act_window">
+        <field name="name">MyApp</field>
+        <field name="res_model">child.app</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="demo_app" name="MyApp" />
+    <menuitem id="demo_app_action" name="Parent" parent="demo_app" action="parent_action" />
+    <menuitem id="demo_app_actions" name="Child" parent="demo_app" action="child_action" />
+</odoo>
